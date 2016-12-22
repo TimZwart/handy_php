@@ -1,12 +1,12 @@
 <?php
     function var_tim($var, $max_depth = 3, $current_depth = 1){
-        $looper = function($var) {
+        $looper = function($var) use ($max_depth, $current_depth) {
             foreach($var as $key => $val) { 
                echo "$key => ";
                var_tim($val, $max_depth, $current_depth+1);
                echo "\n";
             }
-        }
+        };
         if($current_depth > $max_depth) {
             return '..';
         }
